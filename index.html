@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.1.1/tesseract.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="alertContainer"></div>
+        <div class="main-content">
+            <!-- Left Panel - Image Upload -->
+            <div class="panel">
+                <div class="upload-area" id="uploadArea">
+                    <div id="uploadPlaceholder">
+                        <div class="upload-text">Upload Image</div>
+                        <div class="upload-subtext">(Only JPEG allowed)</div>
+                    </div>
+                    <img id="uploadedImage" class="uploaded-image hidden" alt="Uploaded visiting card">
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" id="uploadBtn">
+                        UPLOAD
+                    </button>
+                    <button class="btn btn-secondary" id="discardBtn">
+                        DISCARD
+                    </button>
+                </div>
+                <button class="btn btn-success extract-btn" id="extractBtn" disabled>
+                    <span id="extractText">EXTRACT</span>
+                    <div class="spinner hidden" id="extractSpinner"></div>
+                </button>
+                <!-- OCR Progress -->
+                <div class="progress-container hidden" id="progressContainer">
+                </div>
+                <!-- Raw OCR Text -->
+                <div class="raw-text hidden" id="rawTextContainer">
+                    <div id="rawText"></div>
+                </div>
+                <input type="file" id="fileInput" accept="image/jpeg" class="hidden">
+            </div>
+            <!-- Right Panel - Data Form -->
+            <div class="panel">
+                <div class="form-group">
+                    <label for="nameInput">Name:</label>
+                    <input type="text" id="nameInput" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label for="businessInput">Business:</label>
+                    <input type="text" id="businessInput" placeholder="Enter business name">
+                </div>
+                <div class="form-group">
+                    <label for="addressInput">Address:</label>
+                    <input type="text" id="addressInput" placeholder="Enter address">
+                </div>
+                <div class="form-group">
+                    <label for="contactInput">Contact No:</label>
+                    <input type="text" id="contactInput" placeholder="Enter contact number">
+                </div>
+                <div class="form-group">
+                    <label for="productInput">Product / Service:</label>
+                    <input type="text" id="productInput" placeholder="Enter product or service">
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" id="saveBtn">
+                        SAVE
+                    </button>
+                    <button class="btn btn-secondary" id="clearBtn">
+                        CLEAR
+                    </button>
+                </div>
+                <!-- Search Section -->
+                <div class="search-section">
+                    <div class="search-container">
+                        <input type="text" class="search-input" id="searchInput" placeholder="">
+                        <button class="btn btn-warning" id="searchBtn">
+                            SEARCH
+                        </button>
+                    </div>
+                    
+                    <div id="searchResults" class="search-results hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
